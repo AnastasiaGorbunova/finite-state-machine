@@ -66,14 +66,29 @@ class FSM {
      * @param event
      * @returns {Array}
      */
-    getStates(event) {}
+    getStates(event) {
+        var stateArray=Object.getOwnProperyNames(this.config.states);
+        if (event)
+        {
+            for (var index=state.Array.length-1;index>=0;index--)
+            {
+                if (!this.config.states[stateArray[]].transitions[event])
+                {
+                    stateArray.splice(index,1);
+                }
+            }
+        }
+        return stateArray;
+    }
 
     /**
      * Goes back to previous state.
      * Returns false if undo is not available.
      * @returns {Boolean}
      */
-    undo() {}
+    undo() {
+        
+    }
 
     /**
      * Goes redo to state.
