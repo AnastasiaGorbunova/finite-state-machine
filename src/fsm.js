@@ -11,8 +11,8 @@ class FSM {
             throw new Error;
         }
         this.state=this.config.initial;
-        this.lastState=null;
-        this.nextState=null;
+        this.lastState=[];
+        this.nextState=[];
     }
 
     /**
@@ -30,7 +30,7 @@ class FSM {
     changeState(state) {
         if(this.config.states[state]){
             this.lastState.push(this.state);
-            this.nextState=null;
+            this.nextState=[];
             this.state=state;
         }
         else {
@@ -44,7 +44,7 @@ class FSM {
      */
     trigger(event) {
         if(this.config.states[this.state].transitions[event]){
-            this.nextState=null;
+            this.nextState=[];
             this.lastState.push(this.state);
             this.state=this.config.states[this.state].transitions[event];
         }
@@ -85,7 +85,10 @@ class FSM {
     /**
      * Clears transition history
      */
-    clearHistory() {}
+    clearHistory() {
+        this.lastState=[];
+        this.nextState=[];
+    }
 }
 
 module.exports = FSM;
