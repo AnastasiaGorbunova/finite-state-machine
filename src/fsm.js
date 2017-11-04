@@ -87,7 +87,14 @@ class FSM {
      * @returns {Boolean}
      */
     undo() {
-        
+        if(this.lastState.length!=0){
+            this.nextState.push(this.state);
+            this.state=this.lastState.pop();
+            return true;
+        }
+        else {
+            return false;
+        }
     }
 
     /**
@@ -95,7 +102,16 @@ class FSM {
      * Returns false if redo is not available.
      * @returns {Boolean}
      */
-    redo() {}
+    redo() {
+        if(this.nextState!=0){
+            this.lastState.push(this.state);
+            this.state=this.nextState.pop();
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
 
     /**
      * Clears transition history
