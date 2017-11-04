@@ -72,7 +72,7 @@ class FSM {
         {
             for (var index=state.Array.length-1;index>=0;index--)
             {
-                if (!this.config.states[stateArray[]].transitions[event])
+                if (!this.config.states[stateArray[index]].transitions[event])
                 {
                     stateArray.splice(index,1);
                 }
