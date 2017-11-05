@@ -67,7 +67,7 @@ class FSM {
      * @returns {Array}
      */
     getStates(event) {
-        var stateArray=[];
+        var stateArray=Object.getOwnProperyNames(this.config.states);
         if (event)
         {
             for (var index=state.Array.length-1;index>=0;index--)
@@ -77,11 +77,12 @@ class FSM {
                     stateArray.splice(index,1);
                 }
             }
-             return stateArray;
+            return stateArray;
         }
-       else {
-        throw new Error();
-       }
+        else {
+            throw new Error();
+        }
+    
     }
 
     /**
