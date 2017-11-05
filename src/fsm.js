@@ -80,7 +80,7 @@ class FSM {
              return stateArray;
         }
        else {
-        return throw new Error();
+        throw new Error();
        }
     }
 
