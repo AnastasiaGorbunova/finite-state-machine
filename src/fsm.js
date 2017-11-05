@@ -67,7 +67,7 @@ class FSM {
      * @returns {Array}
      */
     getStates(event) {
-        var stateArray=Object.getOwnProperyNames(this.config.states);
+        var stateArray=[];
         if (event)
         {
             for (var index=state.Array.length-1;index>=0;index--)
