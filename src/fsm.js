@@ -77,7 +77,6 @@ class FSM {
                     stateArray.splice(index,1);
                 }
             }
-            return stateArray;
         }
         else {
             throw new Error();
