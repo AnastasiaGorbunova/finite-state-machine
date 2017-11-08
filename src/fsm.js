@@ -67,20 +67,21 @@ class FSM {
      * @returns {Array}
      */
     getStates(event) {
-        var stateArray=Object.getOwnProperyNames(this.config.states);
+        var stateArray = Object.getOwnPropertyNames(this.config.states);
         if (event)
         {
-            for (var index=stateArray.length-1;index>=0;index--)
+            for (var index = stateArray.length - 1; index >= 0; --index)
             {
                 if (!this.config.states[stateArray[index]].transitions[event])
                 {
-                    stateArray.splice(index,1);
+                    stateArray.splice(index, 1);
                 }
             }
+
+
         }
-        else {
-            throw new Error();
-        }
+        return stateArray;
+
     
     }
 
